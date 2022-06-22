@@ -32,42 +32,20 @@ function App() {
   }, [pokedata]);
 
   return (
-    <div className="App p-5">
-      <input
-        className="btn btn-outline-success"
-        type="button"
-        value="Pagina Siguiente"
-        onClick={(event) => {
-          if(pokemon>=1126){
-            setPokeNum(0);
-          }else {
-            setPokeNum(Number(pokemon) + 10);
-            console.log(pokemon);
-          }
-        }}
-      />
-      <input
-        className="btn btn-outline-success"
-        type="button"
-        value="Pagina Anterior"
-        onClick={(event) => {
-          if (pokemon <= 0) {
-            setPokeNum(Number(1116));
-          } else {
-            setPokeNum(Number(pokemon) - 10);
-          }
-        }}
-      />
-      <hr />
-      <table className="table table-secondary table-striped">
+    <div className="App bg-dark text-white p-5">
+      <div className="text-center">
+        <h1>POKEAPI - 190447</h1>
+      </div>
+      <hr/>
+      <table className="table table-danger table-striped">
         <thead>
           <tr>
-            <td>Id</td>
-            <td>Name</td>
-            <td>Sprite Front</td>
-            <td>Sprite Back</td>
-            <td>Sprite Shini Front</td>
-            <td>Sprite Shini Back</td>
+            <td className="bg-danger">Number In The Pokedex</td>
+            <td className="bg-danger">Name</td>
+            <td className="bg-danger">Sprite Front</td>
+            <td className="bg-danger">Sprite Back</td>
+            <td className="bg-danger">Sprite Shini Front</td>
+            <td className="bg-danger">Sprite Shini Back</td>
           </tr>
         </thead>
         <tbody>
@@ -91,6 +69,33 @@ function App() {
           ))}
         </tbody>
       </table>
+      <div className="bg-secondary p-2">
+        <input
+          className="btn btn-warning me-3"
+          type="button"
+          value="Pagina Siguiente"
+          onClick={(event) => {
+            if (pokemon >= 1125) {
+              setPokeNum(Number(0));
+            } else {
+              setPokeNum(Number(pokemon) + 10);
+              console.log(pokemon);
+            }
+          }}
+        />
+        <input
+          className="btn btn-warning ms-3"
+          type="button"
+          value="Pagina Anterior"
+          onClick={(event) => {
+            if (pokemon <= 0) {
+              setPokeNum(Number(1116));
+            } else {
+              setPokeNum(Number(pokemon) - 10);
+            }
+          }}
+        />
+      </div>
     </div>
   );
 }
