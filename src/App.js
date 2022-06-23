@@ -63,6 +63,7 @@ function App() {
                       ? poke.data.sprites.back_default
                       : poke.data.sprites.back_shiny
                   }
+                  alt="No image"
                 />
               </td>
             </tr>
@@ -85,6 +86,7 @@ function App() {
         <input
           type="button"
           value="Shiny"
+          className="btn btn-warning ms-3"
           onClick={() => {
             if (Shini == 0) {
               setShini(1);
@@ -97,6 +99,7 @@ function App() {
         <input
           type="button"
           value="Side"
+          className="btn btn-warning ms-3"
           onClick={() => {
             if (mostrar == 0) {
               setMostrat(1);
