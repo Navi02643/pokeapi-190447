@@ -70,9 +70,9 @@ function App() {
           ))}
         </tbody>
       </table>
-      <div className="bg-secondary p-2">
+      <div className="text-center bg-secondary p-2">
         <input
-          className="btn btn-warning me-3"
+          className="btn btn-warning"
           type="button"
           value="Pagina Siguiente"
           onClick={(event) => {
