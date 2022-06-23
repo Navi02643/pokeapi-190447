@@ -6,6 +6,8 @@ function App() {
   const [pokemon, setPokeNum] = useState(0);
   const [pokedata, setPokeData] = useState("");
   const [pokedataesp, setPokeDataESP] = useState([]);
+  const [Shini, setShini] = useState(0);
+  const [mostrar, setMostrat] = useState(0);
 
   const getdata = () => {
     axios
@@ -23,6 +25,7 @@ function App() {
       pokedata.map((item) => {
         axios.get(`${item.url}`).then((data) => {
           setPokeDataESP((current) => [...current, { data: data.data }]);
+          console.log(data.data);
           if (pokedataesp >= 10) {
             return pokedataesp;
           }
@@ -36,16 +39,12 @@ function App() {
       <div className="text-center">
         <h1>POKEAPI - 190447</h1>
       </div>
-      <hr/>
       <table className="table table-danger table-striped">
         <thead>
           <tr>
             <td className="bg-danger">Number In The Pokedex</td>
             <td className="bg-danger">Name</td>
-            <td className="bg-danger">Sprite Front</td>
-            <td className="bg-danger">Sprite Back</td>
-            <td className="bg-danger">Sprite Shini Front</td>
-            <td className="bg-danger">Sprite Shini Back</td>
+            <td className="bg-danger">Pokemon Image</td>
           </tr>
         </thead>
         <tbody>
@@ -54,16 +53,17 @@ function App() {
               <td>{`${poke.data.id}`}</td>
               <td>{`${poke.data.name}`}</td>
               <td>
-                <img src={poke.data.sprites.front_default}></img>
-              </td>
-              <td>
-                <img src={poke.data.sprites.back_default}></img>
-              </td>
-              <td>
-                <img src={poke.data.sprites.front_shiny}></img>
-              </td>
-              <td>
-                <img src={poke.data.sprites.back_shiny}></img>
+                <img
+                  src={
+                    mostrar == 0
+                      ? Shini == 0
+                        ? poke.data.sprites.front_default
+                        : poke.data.sprites.front_shiny
+                      : Shini == 0
+                      ? poke.data.sprites.back_default
+                      : poke.data.sprites.back_shiny
+                  }
+                />
               </td>
             </tr>
           ))}
@@ -79,7 +79,30 @@ function App() {
               setPokeNum(Number(0));
             } else {
               setPokeNum(Number(pokemon) + 10);
-              console.log(pokemon);
+            }
+          }}
+        />
+        <input
+          type="button"
+          value="Shiny"
+          onClick={() => {
+            if (Shini == 0) {
+              setShini(1);
+            }
+            if (Shini == 1) {
+              setShini(0);
+            }
+          }}
+        />
+        <input
+          type="button"
+          value="Side"
+          onClick={() => {
+            if (mostrar == 0) {
+              setMostrat(1);
+            }
+            if (mostrar == 1) {
+              setMostrat(0);
             }
           }}
         />
