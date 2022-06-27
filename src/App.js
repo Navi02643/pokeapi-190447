@@ -9,6 +9,8 @@ function App() {
   const [Shini, setShini] = useState(0);
   const [mostrar, setMostrat] = useState(0);
 
+RegExp: ''
+
   const getdata = () => {
     axios
       .get(`https://pokeapi.co/api/v2/pokemon/?limit=10&offset=${pokemon}`)
@@ -25,7 +27,6 @@ function App() {
       pokedata.map((item) => {
         axios.get(`${item.url}`).then((data) => {
           setPokeDataESP((current) => [...current, { data: data.data }]);
-          console.log(data.data);
           if (pokedataesp >= 10) {
             return pokedataesp;
           }
