@@ -2,14 +2,13 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./App.css";
+import NavBar from "./components/NavBar";
 function App() {
   const [pokemon, setPokeNum] = useState(0);
   const [pokedata, setPokeData] = useState("");
   const [pokedataesp, setPokeDataESP] = useState([]);
   const [Shini, setShini] = useState(0);
   const [mostrar, setMostrat] = useState(0);
-
-RegExp: ''
 
   const getdata = () => {
     axios
@@ -37,9 +36,8 @@ RegExp: ''
 
   return (
     <div className="App bg-dark text-white p-5">
-      <div className="text-center">
-        <h1>POKEAPI - 190447</h1>
-      </div>
+      <NavBar/>
+      <br/>
       <table className="table table-danger table-striped">
         <thead>
           <tr>
