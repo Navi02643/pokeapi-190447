@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./App.css";
 import NavBar from "./components/NavBar";
+
 function App() {
   const [pokemon, setPokeNum] = useState(0);
   const [pokedata, setPokeData] = useState("");
@@ -74,7 +75,7 @@ function App() {
           className="btn btn-warning"
           type="button"
           value="Pagina Siguiente"
-          onClick={(event) => {
+          onClick={() => {
             if (pokemon >= 1125) {
               setPokeNum(Number(0));
             } else {
@@ -112,7 +113,7 @@ function App() {
           className="btn btn-warning ms-3"
           type="button"
           value="Pagina Anterior"
-          onClick={(event) => {
+          onClick={() => {
             if (pokemon <= 0) {
               setPokeNum(Number(1116));
             } else {

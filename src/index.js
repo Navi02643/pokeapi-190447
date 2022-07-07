@@ -3,21 +3,29 @@ import "bootstrap/dist/js/bootstrap.bundle.min";
 import React from "react";
 import "./index.css";
 import ReactDOM from "react-dom/client";
-import { BrowserRouter as Router, Navigate, Routes, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Navigate,
+  Routes,
+  Route,
+} from "react-router-dom";
 import reportWebVitals from "./reportWebVitals";
-import App from "./App"
-import PkeBack from "./components/search/pokeback"
+import App from "./App";
+import PkeBack from "./components/search/pokeback";
+import { GlobalProvider } from "./context/context-global";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <Router>
-    <Routes>
-      <Route path="home" element={<App />} />
-      <Route path="search" element={<PkeBack />} />
-      <Route path="*" element={<Navigate replace to="/home" />} />
-      <Route path="/" element={<Navigate replace to="/home" />} />
-    </Routes>
-  </Router>
+  <GlobalProvider>
+    <Router>
+      <Routes>
+        <Route path="home" element={<App />} />
+        <Route path="search" element={<PkeBack />} />
+        <Route path="*" element={<Navigate replace to="/home" />} />
+        <Route path="/" element={<Navigate replace to="/home" />} />
+      </Routes>
+    </Router>
+  </GlobalProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function

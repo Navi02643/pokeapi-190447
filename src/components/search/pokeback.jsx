@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import NavBar from "../NavBar";
+import { GlobalContext } from "../../context/context-global"
 
 function PkeBack() {
+  const { name } = useContext(GlobalContext)
   return (
     <div className="bg-dark text-white p-5">
       <NavBar/>
-      <h5>Si funciona</h5>
+      <br/>
+      <h5>{name}</h5>
     </div>
   );
 }
