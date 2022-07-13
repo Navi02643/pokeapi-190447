@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import NavBar from "../NavBar";
+import NavBar from "../navbar/NavBar";
 import { GlobalContext } from "../../context/context-global";
 import axios from "axios";
 import Swal from "sweetalert2";

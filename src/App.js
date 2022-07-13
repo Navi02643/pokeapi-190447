@@ -6,8 +6,9 @@ import axios from "axios";
 
 import "./App.css";
 import { GlobalContext } from "./context/context-global";
+import { useTranslation } from "react-i18next";
 
-import NavBar from "./components/NavBar";
+import NavBar from "./components/navbar/NavBar";
 
 import Button from "@mui/material/Button";
 import Card from "@mui/material/Card";
@@ -20,7 +21,7 @@ import Grid from "@mui/material/Grid";
 function App() {
 
   const { handleCount } = useContext(GlobalContext);
-
+  const { t } = useTranslation();
   const [pokemon, setPokeNum] = useState(0);
   const [pokedata, setPokeData] = useState("");
   const [pokedataesp, setPokeDataESP] = useState([]);
@@ -87,7 +88,7 @@ function App() {
               <Link className="btn btn-outline-success" to="/search" onClick={() => {
               handleCount((poke.data.id).toString());
             }}>
-                View More
+                {t("cardbtntext")}
               </Link>
             </CardActions>
           </Card>
