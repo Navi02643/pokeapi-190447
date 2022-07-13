@@ -1,10 +1,26 @@
 /* eslint-disable */
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState,useContext } from "react";
+import { Link } from "react-router-dom";
+
 import axios from "axios";
+
 import "./App.css";
+import { GlobalContext } from "./context/context-global";
+
 import NavBar from "./components/NavBar";
 
+import Button from "@mui/material/Button";
+import Card from "@mui/material/Card";
+import CardActions from "@mui/material/CardActions";
+import CardContent from "@mui/material/CardContent";
+import CardMedia from "@mui/material/CardMedia";
+import Typography from "@mui/material/Typography";
+import Grid from "@mui/material/Grid";
+
 function App() {
+
+  const { handleCount } = useContext(GlobalContext);
+
   const [pokemon, setPokeNum] = useState(0);
   const [pokedata, setPokeData] = useState("");
   const [pokedataesp, setPokeDataESP] = useState([]);
@@ -37,56 +53,61 @@ function App() {
 
   return (
     <div className="App bg-dark text-white p-5">
-      <NavBar/>
-      <br/>
-      <table className="table table-danger table-striped">
-        <thead>
-          <tr>
-            <td className="bg-danger">Number In The Pokedex</td>
-            <td className="bg-danger">Name</td>
-            <td className="bg-danger">Pokemon Image</td>
-          </tr>
-        </thead>
-        <tbody>
-          {pokedataesp.map((poke, index) => (
-            <tr key={index}>
-              <td>{`${poke.data.id}`}</td>
-              <td>{`${poke.data.name}`}</td>
-              <td>
-                <img
-                  src={
-                    mostrar == 0
-                      ? Shini == 0
-                        ? poke.data.sprites.front_default
-                        : poke.data.sprites.front_shiny
-                      : Shini == 0
-                      ? poke.data.sprites.back_default
-                      : poke.data.sprites.back_shiny
-                  }
-                  alt="No image"
-                />
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      <NavBar />
+      <br />
+      <Grid container direction="row" justifyContent="space-between">
+        {pokedataesp.map((poke, index) => (
+          <Card
+            style={{ margin: 25 }}
+            sx={{ maxWidth: 350, maxHeight: 450 }}
+            key={index}
+          >
+            <CardMedia
+              component="img"
+              height="200px"
+              image={
+                mostrar == 0
+                  ? Shini == 0
+                    ? poke.data.sprites.front_default
+                    : poke.data.sprites.front_shiny
+                  : Shini == 0
+                  ? poke.data.sprites.back_default
+                  : poke.data.sprites.back_shiny
+              }
+            />
+            <CardContent>
+              <Typography gutterBottom variant="h5" component="div">
+                {poke.data.name}
+              </Typography>
+              <Typography gutterBottom variant="h5" component="div">
+                {poke.data.id}
+              </Typography>
+            </CardContent>
+            <CardActions>
+              <Link className="btn btn-outline-success" to="/search" onClick={() => {
+              handleCount((poke.data.id).toString());
+            }}>
+                View More
+              </Link>
+            </CardActions>
+          </Card>
+        ))}
+      </Grid>
       <div className="text-center bg-secondary p-2">
-        <input
-          className="btn btn-warning"
-          type="button"
-          value="Pagina Siguiente"
+        <Button
+          variant="contained"
           onClick={() => {
-            if (pokemon >= 1125) {
-              setPokeNum(Number(0));
+            if (pokemon <= 0) {
+              setPokeNum(Number(1116));
             } else {
-              setPokeNum(Number(pokemon) + 10);
+              setPokeNum(Number(pokemon) - 10);
             }
           }}
-        />
-        <input
-          type="button"
-          value="Shiny"
-          className="btn btn-warning ms-3"
+        >
+          Pagina Anterior
+        </Button>
+        <Button
+          variant="contained"
           onClick={() => {
             if (Shini == 0) {
               setShini(1);
@@ -95,11 +116,11 @@ function App() {
               setShini(0);
             }
           }}
-        />
-        <input
-          type="button"
-          value="Side"
-          className="btn btn-warning ms-3"
+        >
+          Shiny
+        </Button>
+        <Button
+          variant="contained"
           onClick={() => {
             if (mostrar == 0) {
               setMostrat(1);
@@ -108,19 +129,21 @@ function App() {
               setMostrat(0);
             }
           }}
-        />
-        <input
-          className="btn btn-warning ms-3"
-          type="button"
-          value="Pagina Anterior"
+        >
+          Side
+        </Button>
+        <Button
+          variant="contained"
           onClick={() => {
-            if (pokemon <= 0) {
-              setPokeNum(Number(1116));
+            if (pokemon >= 1125) {
+              setPokeNum(Number(0));
             } else {
-              setPokeNum(Number(pokemon) - 10);
+              setPokeNum(Number(pokemon) + 10);
             }
           }}
-        />
+        >
+          Pagina Siguiente
+        </Button>
       </div>
     </div>
   );
