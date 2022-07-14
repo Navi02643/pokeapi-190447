@@ -9,7 +9,9 @@ function Aboutme() {
       <NavBar />
       <br />
       <h5>CARLOS IVAN MERCADO MARIN</h5>
-      <p>{t("cardbtntext")}</p>
+      <p>{t("info1")}</p>
+      <p>{t("info2")}</p>
+      <p>{t("info3")}</p>
     </div>
   );
 }

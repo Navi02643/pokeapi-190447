@@ -3,28 +3,28 @@ import React, { createContext, useState } from "react";
 const initialState = {
   name: "",
 };
-const initialId = {
-  ID: 0,
+const initialuser = {
+  username: "",
 };
 
 export const GlobalContext = createContext(initialState);
-export const GlobalIDPokemon = createContext(initialId);
+export const GlobalIDPokemon = createContext(initialuser);
 
 export const GlobalProvider = ({ children }) => {
   const [name, SetName] = useState("");
-  const [pokeid, SetID] = useState("");
+  const [initialuser, SetID] = useState("");
 
   const handleCount = (type) => {
     type = type.toLowerCase();
     SetName(type);
   };
 
-  const handleID = (item) => {
+  const handleUser = (item) => {
     SetID(item);
   };
 
   return (
-    <GlobalContext.Provider value={{ name, pokeid, handleCount, handleID }}>
+    <GlobalContext.Provider value={{ name, initialuser, handleCount, handleUser }}>
       {children}
     </GlobalContext.Provider>
   );

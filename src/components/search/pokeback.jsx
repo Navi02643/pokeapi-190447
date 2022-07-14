@@ -19,18 +19,6 @@ function PkeBack() {
         'error'
       )
     });
-    axios
-    .get(`https://pokeapi.co/api/v2/pokemon/${name}`)
-    .then((res) => {
-      setPokemon(res.data);
-    })
-    .catch(err=>{
-      Swal.fire(
-        'Good job!',
-        'Este pokemon no existe',
-        'error'
-      )
-    });
 
   return (
     <div className="bg-dark text-white p-5">

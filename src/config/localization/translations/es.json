@@ -1,5 +1,12 @@
 {
-  "navitem": "Acerca de",
+  "navitemLi":"Lista pokemon",
+  "navitemAb": "Acerca de",
   "navsearch": "Buscar",
-  "cardbtntext": "Ver mas"
+  "cardbtntext": "Ver mas",
+  "btnant": "Pagina anterior",
+  "btnsig": "Pagina siguiente",
+  "side": "Cambiar lado",
+  "info1": "Carrera: Desarrollo y Gestion de Software",
+  "info2": "Grado y Grupo: 9A",
+  "info3": "Asignatura: Desarrollo Web Integral"
 }

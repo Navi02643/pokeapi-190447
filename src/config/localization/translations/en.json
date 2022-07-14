@@ -1,5 +1,12 @@
 {
-  "navitem": "About",
+  "navitemLi":"Pokemon list",
+  "navitemAb": "About",
   "navsearch": "Search",
-  "cardbtntext": "View more"
+  "cardbtntext": "View more",
+  "btnant": "Previous page",
+  "btnsig": "Next page",
+  "side": "Change side",
+  "info1": "Career: Software Development and Management",
+  "info2": "Grade and Group: 9A",
+  "info3": "Subject: Comprehensive Web Development"
 }

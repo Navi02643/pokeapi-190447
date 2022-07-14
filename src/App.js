@@ -1,5 +1,5 @@
 /* eslint-disable */
-import React, { useEffect, useState,useContext } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { Link } from "react-router-dom";
 
 import axios from "axios";
@@ -18,8 +18,11 @@ import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
 
-function App() {
+import fondo from "./assets/img/fondo.jpg";
+import fondo2 from "./assets/img/fondo2.jpeg";
+import fondo3 from "./assets/img/fondo3.jfif";
 
+function App() {
   const { handleCount } = useContext(GlobalContext);
   const { t } = useTranslation();
   const [pokemon, setPokeNum] = useState(0);
@@ -64,6 +67,7 @@ function App() {
             key={index}
           >
             <CardMedia
+              style={{ backgroundImage: `url(${fondo})` }}
               component="img"
               height="200px"
               image={
@@ -76,18 +80,22 @@ function App() {
                   : poke.data.sprites.back_shiny
               }
             />
-            <CardContent>
+            <CardContent style={{ backgroundImage: `url(${fondo2})` }}>
+              <Typography gutterBottom variant="h5" component="div">
+                #{poke.data.id}
+              </Typography>
               <Typography gutterBottom variant="h5" component="div">
                 {poke.data.name}
               </Typography>
-              <Typography gutterBottom variant="h5" component="div">
-                {poke.data.id}
-              </Typography>
             </CardContent>
-            <CardActions>
-              <Link className="btn btn-outline-success" to="/search" onClick={() => {
-              handleCount((poke.data.id).toString());
-            }}>
+            <CardActions style={{ backgroundImage: `url(${fondo3})`,justifyContent:'center' }}>
+              <Link
+                className="btn btn-secondary"
+                to="/search"
+                onClick={() => {
+                  handleCount(poke.data.id.toString());
+                }}
+              >
                 {t("cardbtntext")}
               </Link>
             </CardActions>
@@ -105,7 +113,7 @@ function App() {
             }
           }}
         >
-          Pagina Anterior
+          {t("btnant")}
         </Button>
         <Button
           variant="contained"
@@ -131,7 +139,7 @@ function App() {
             }
           }}
         >
-          Side
+          {t("side")}
         </Button>
         <Button
           variant="contained"
@@ -143,7 +151,7 @@ function App() {
             }
           }}
         >
-          Pagina Siguiente
+          {t("btnsig")}
         </Button>
       </div>
     </div>

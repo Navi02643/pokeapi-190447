@@ -26,7 +26,7 @@ export default function SearchAppBar() {
             sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}
           >
             <Link className="navbar-brand" to="/pokemons">
-              Poke Api - 190447
+              {t("navitemLi")}
             </Link>
           </Typography>
           <Typography
@@ -36,7 +36,7 @@ export default function SearchAppBar() {
             sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}
           >
             <Link className="navbar-brand" to="/matricula">
-              {t("navitem")}
+              {t("navitemAb")}
             </Link>
           </Typography>
           <Typography
