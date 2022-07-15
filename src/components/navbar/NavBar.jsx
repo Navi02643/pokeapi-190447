@@ -6,6 +6,8 @@ import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
+import es from "../../assets/img/mxm.svg";
+import en from "../../assets/img/usa.png";
 
 export default function SearchAppBar() {
   const [NameNum, SetNameNum] = useState("");
@@ -66,21 +68,38 @@ export default function SearchAppBar() {
               </Link>
             </form>
           </Typography>
-          <Typography>
-            <button
+          <Typography style={{ padding: 5 }}>
+            <img
+              style={{ width: 35, height: 25, margin: 5 }}
+              src={en}
+              alt="EN"
               onClick={() => {
                 changeLaguage("en");
               }}
-            >
-              en
-            </button>
-            <button
+            />
+            <img
+              style={{ width: 35, height: 25, margin: 5 }}
+              src={es}
+              alt="ES"
               onClick={() => {
                 changeLaguage("es");
               }}
-            >
-              es
-            </button>
+            />
+          </Typography>
+          <Typography>
+            <Link to="/pokemons"></Link>
+          </Typography>
+          <Typography>
+            <Link to="/pokemons"></Link>
+          </Typography>
+          <Typography>
+            <Link to="/pokemons"></Link>
+          </Typography>
+          <Typography>
+            <Link to="/pokemons"></Link>
+          </Typography>
+          <Typography>
+            <Link to="/pokemons"></Link>
           </Typography>
         </Toolbar>
       </AppBar>
