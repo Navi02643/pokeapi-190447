@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 
 import NavBar from "../navbar/NavBar";
 
-import { styled } from '@mui/material/styles';
+import { styled } from "@mui/material/styles";
 import { GlobalContext } from "../../context/context-global";
 import { useTranslation } from "react-i18next";
 
@@ -15,7 +15,9 @@ import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
-import LinearProgress, { linearProgressClasses } from '@mui/material/LinearProgress';
+import LinearProgress, {
+  linearProgressClasses,
+} from "@mui/material/LinearProgress";
 
 import fondo from "../../assets/img/fondo.jpg";
 import fondo2 from "../../assets/img/fondo2.jpeg";
@@ -25,11 +27,12 @@ const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
   height: 10,
   borderRadius: 5,
   [`&.${linearProgressClasses.colorPrimary}`]: {
-    backgroundColor: theme.palette.grey[theme.palette.mode === 'light' ? 200 : 800],
+    backgroundColor:
+      theme.palette.grey[theme.palette.mode === "light" ? 200 : 800],
   },
   [`& .${linearProgressClasses.bar}`]: {
     borderRadius: 5,
-    backgroundColor: theme.palette.mode === 'light' ? '#1a90ff' : '#308fe8',
+    backgroundColor: theme.palette.mode === "light" ? "#1a90ff" : "#308fe8",
   },
 }));
 
@@ -52,18 +55,10 @@ function PkeBack() {
     <div className="bg-dark text-white p-5">
       <NavBar />
       <br />
-      <button
-        onClick={() => {
-          console.log(pokemon);
-        }}
-      >
-        log
-      </button>
-      <br />
       <Grid container direction="row" justifyContent="space-between">
         <Card style={{ margin: 25 }} sx={{ maxWidth: 350, maxHeight: 500 }}>
           <CardMedia
-                        style={{ backgroundImage: `url(${fondo})` }}
+            style={{ backgroundImage: `url(${fondo})` }}
             component="img"
             height="300px"
             image={
@@ -86,7 +81,12 @@ function PkeBack() {
               {pokemon.name}
             </Typography>
           </CardContent>
-          <CardActions style={{ backgroundImage: `url(${fondo3})`,justifyContent:'center' }}>
+          <CardActions
+            style={{
+              backgroundImage: `url(${fondo3})`,
+              justifyContent: "center",
+            }}
+          >
             <Button
               variant="contained"
               onClick={() => {
@@ -115,34 +115,53 @@ function PkeBack() {
             </Button>
           </CardActions>
         </Card>
-        <Card style={{ margin: 25 }} sx={{ maxWidth: 450, maxHeight: 500, width:450 }}>
+        <Card
+          style={{ margin: 25 }}
+          sx={{ maxWidth: 450, maxHeight: 500, width: 450 }}
+        >
           <CardContent>
-            <Typography variant="h4">
-              {t("Stat")}
-            </Typography>
+            <Typography variant="h4">{t("Stat")}</Typography>
             <Typography>
               {t("HP")}: {pokemon.stats ? pokemon.stats[0].base_stat : ""}
-              <BorderLinearProgress variant="determinate" value={pokemon.stats ? Number(pokemon.stats[0].base_stat) : 0} />
+              <BorderLinearProgress
+                variant="determinate"
+                value={pokemon.stats ? Number(pokemon.stats[0].base_stat) : 0}
+              />
             </Typography>
             <Typography>
               {t("ATK")}: {pokemon.stats ? pokemon.stats[1].base_stat : ""}
-              <BorderLinearProgress variant="determinate" value={pokemon.stats ? Number(pokemon.stats[1].base_stat) : 0} />
+              <BorderLinearProgress
+                variant="determinate"
+                value={pokemon.stats ? Number(pokemon.stats[1].base_stat) : 0}
+              />
             </Typography>
             <Typography>
               {t("DEF")}: {pokemon.stats ? pokemon.stats[2].base_stat : ""}
-              <BorderLinearProgress variant="determinate" value={pokemon.stats ? Number(pokemon.stats[2].base_stat) : 0} />
+              <BorderLinearProgress
+                variant="determinate"
+                value={pokemon.stats ? Number(pokemon.stats[2].base_stat) : 0}
+              />
             </Typography>
             <Typography>
               {t("SPA")}: {pokemon.stats ? pokemon.stats[3].base_stat : ""}
-              <BorderLinearProgress variant="determinate" value={pokemon.stats ? Number(pokemon.stats[3].base_stat) : 0} />
+              <BorderLinearProgress
+                variant="determinate"
+                value={pokemon.stats ? Number(pokemon.stats[3].base_stat) : 0}
+              />
             </Typography>
             <Typography>
               {t("SPD")}: {pokemon.stats ? pokemon.stats[4].base_stat : ""}
-              <BorderLinearProgress variant="determinate" value={pokemon.stats ? Number(pokemon.stats[4].base_stat) : 0} />
+              <BorderLinearProgress
+                variant="determinate"
+                value={pokemon.stats ? Number(pokemon.stats[4].base_stat) : 0}
+              />
             </Typography>
             <Typography>
               {t("SPE")}: {pokemon.stats ? pokemon.stats[5].base_stat : ""}
-              <BorderLinearProgress variant="determinate" value={pokemon.stats ? Number(pokemon.stats[5].base_stat) : 0} />
+              <BorderLinearProgress
+                variant="determinate"
+                value={pokemon.stats ? Number(pokemon.stats[5].base_stat) : 0}
+              />
             </Typography>
           </CardContent>
         </Card>
