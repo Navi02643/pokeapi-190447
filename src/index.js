@@ -13,6 +13,7 @@ import reportWebVitals from "./reportWebVitals";
 import App from "./App";
 import PkeBack from "./components/search/pokeback";
 import Aboutme from "./components/about/about";
+import Login from "./components/about/user";
 import { GlobalProvider } from "./context/context-global";
 import { I18nextProvider } from "react-i18next";
 import i18n from "./config/localization/i18n";
@@ -26,8 +27,9 @@ root.render(
           <Route path="pokemons" element={<App />} />
           <Route path="search" element={<PkeBack />} />
           <Route path="matricula" element={<Aboutme />} />
-          <Route path="*" element={<Navigate replace to="/pokemons" />} />
-          <Route path="/" element={<Navigate replace to="/pokemons" />} />
+          <Route path="/login" element={<Login/>}/>
+          <Route path="*" element={<Navigate replace to="/login" />} />
+          <Route path="/" element={<Navigate replace to="/login" />} />
         </Routes>
       </Router>
     </I18nextProvider>

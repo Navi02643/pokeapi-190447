@@ -1,5 +1,5 @@
 {
-  "navitemLi":"Lista pokemon",
+  "navitemLi": "Lista pokemon",
   "navitemAb": "Acerca de",
   "navsearch": "Buscar",
   "cardbtntext": "Ver mas",
@@ -8,5 +8,18 @@
   "side": "Cambiar lado",
   "info1": "Carrera: Desarrollo y Gestion de Software",
   "info2": "Grado y Grupo: 9A",
-  "info3": "Asignatura: Desarrollo Web Integral"
+  "info3": "Asignatura: Desarrollo Web Integral",
+  "btncon": "Continuar",
+  "txtuser": "Nombre de usuario",
+  "txtlogin": "Ingresa tu nombre de usuario",
+  "btnSes": "Cerrar Sesion",
+  "idiom": "Selecciona el idioma",
+  "alert": "Debes ingresar un pokemon existente",
+  "HP" : "Vida",
+  "ATK": "Ataque",
+  "DEF": "Defensa",
+  "SPA": "Ataque Especial",
+  "SPD": "Defensa Especial",
+  "SPE": "Velocidad",
+  "Stat": "Estadisticas"
 }

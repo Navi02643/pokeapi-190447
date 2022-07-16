@@ -6,26 +6,27 @@ import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
+
 import es from "../../assets/img/mxm.svg";
 import en from "../../assets/img/usa.png";
 
 export default function SearchAppBar() {
   const [NameNum, SetNameNum] = useState("");
-  const { handleCount } = useContext(GlobalContext);
+  const { handleUser, handleCount, initialuser } = useContext(GlobalContext);
   const { i18n, t } = useTranslation();
 
   function changeLaguage(language) {
     i18n.changeLanguage(language);
   }
   return (
-    <Box sx={{ flexGrow: 1 }}>
+    <Box sx={{ flexGrow: 3 }}>
       <AppBar position="static">
         <Toolbar>
           <Typography
             variant="h6"
             noWrap
             component="div"
-            sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}
+            sx={{ flexGrow: 2, display: { xs: "none", sm: "block" } }}
           >
             <Link className="navbar-brand" to="/pokemons">
               {t("navitemLi")}
@@ -35,17 +36,18 @@ export default function SearchAppBar() {
             variant="h6"
             noWrap
             component="div"
-            sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}
+            sx={{ flexGrow: 2, display: { xs: "none", sm: "block" } }}
           >
             <Link className="navbar-brand" to="/matricula">
               {t("navitemAb")}
             </Link>
           </Typography>
+
           <Typography
             variant="h6"
             noWrap
             component="div"
-            sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}
+            sx={{ flexGrow: 2, display: { xs: "none", sm: "block" } }}
           >
             <form className="d-flex" role="search">
               <input
@@ -68,7 +70,28 @@ export default function SearchAppBar() {
               </Link>
             </form>
           </Typography>
-          <Typography style={{ padding: 5 }}>
+          <Typography
+            variant="h6"
+            noWrap
+            component="div"
+            sx={{ flexGrow: 2, display: { xs: "none", sm: "block" } }}
+          >
+            <Link
+              className="btn btn-danger"
+              to="/login"
+              onClick={() => {
+                handleUser("");
+              }}
+            >
+              {initialuser} | {t("btnSes")}
+            </Link>
+          </Typography>
+          <Typography
+            variant="h6"
+            noWrap
+            component="div"
+            sx={{ flexGrow: 2, display: { xs: "none", sm: "block" } }}
+          >
             <img
               style={{ width: 35, height: 25, margin: 5 }}
               src={en}
@@ -85,21 +108,6 @@ export default function SearchAppBar() {
                 changeLaguage("es");
               }}
             />
-          </Typography>
-          <Typography>
-            <Link to="/pokemons"></Link>
-          </Typography>
-          <Typography>
-            <Link to="/pokemons"></Link>
-          </Typography>
-          <Typography>
-            <Link to="/pokemons"></Link>
-          </Typography>
-          <Typography>
-            <Link to="/pokemons"></Link>
-          </Typography>
-          <Typography>
-            <Link to="/pokemons"></Link>
           </Typography>
         </Toolbar>
       </AppBar>

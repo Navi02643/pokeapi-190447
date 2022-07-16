@@ -1,5 +1,5 @@
 {
-  "navitemLi":"Pokemon list",
+  "navitemLi": "Pokemon list",
   "navitemAb": "About",
   "navsearch": "Search",
   "cardbtntext": "View more",
@@ -8,5 +8,18 @@
   "side": "Change side",
   "info1": "Career: Software Development and Management",
   "info2": "Grade and Group: 9A",
-  "info3": "Subject: Comprehensive Web Development"
+  "info3": "Subject: Comprehensive Web Development",
+  "btncon": "Continue",
+  "txtuser": "User name",
+  "txtlogin": "Enter your username",
+  "btnSes": "Log out",
+  "idiom": "Select the language",
+  "alert": "You must enter an existing pokemon",
+  "HP" : "Healt",
+  "ATK": "Attack",
+  "DEF": "Defense",
+  "SPA": "Special attack",
+  "SPD": "Special Defense",
+  "SPE": "Speed",
+  "Stat": "Stats"
 }
